@@ -1,0 +1,17 @@
+.WebApp-left{
+    width: 30vw;
+    height: 100vh;
+    float: left;
+    background-color: #282c34;
+    color: white;
+    text-align: center;
+    font-size: calc(10px + 2vmin);
+}
+
+.WebApp-right{
+    width: 70vw;
+    min-height: 100vh;
+    float: right;
+    background-color: white;
+    color: #282c34;
+}
