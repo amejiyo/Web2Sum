@@ -1,0 +1,33 @@
+.Home{
+    text-align: center;
+}
+
+.HomeHeader{
+    font-size: calc(40px + 2vmin);;
+    font-weight: bold;
+    color: #282c34;
+    letter-spacing: 1vmin;
+    font-family: 'Quicksand';
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20vh;
+}
+
+.App-logo {
+    height: 10vmin;
+    pointer-events: none;
+    stroke-width: 2vmin;
+    margin-right: 2vmin;
+}
+
+.Search-Box{
+    height: 5vmin;
+    border-color: goldenrod;
+    border-radius: 2vmin;
+    height: 5vh;
+    width: 30vw;
+    stroke: goldenrod;
+    stroke-width: 5vmin;
+}
+  

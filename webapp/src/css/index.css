@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+span{
+  color:goldenrod;
+}
+
+/* Quicksand */
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+/* Sarabun */
+@import url('https://fonts.googleapis.com/css?family=Sarabun&display=swap');
