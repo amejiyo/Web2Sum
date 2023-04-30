@@ -1,10 +1,15 @@
-.Home{
+.App{
     text-align: center;
 }
 
+.App-link {
+    color: #61dafb;
+  }
+  
+
 .HomeHeader{
-    font-size: calc(40px + 2vmin);;
-    font-weight: bold;
+    font-size: calc(40px + 3vmin);;
+    font-weight:bolder;
     color: #282c34;
     letter-spacing: 1vmin;
     font-family: 'Quicksand';
@@ -12,6 +17,8 @@
     align-items: center;
     justify-content: center;
     margin-top: 20vh;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #282c34;
 }
 
 .App-logo {
@@ -22,12 +29,23 @@
 }
 
 .Search-Box{
-    height: 5vmin;
-    border-color: goldenrod;
+    border-color: #FB9B3B;
     border-radius: 2vmin;
     height: 5vh;
-    width: 30vw;
-    stroke: goldenrod;
-    stroke-width: 5vmin;
+    width: 50vw;
+    border-width: 2px;
+    color: darkgray;
+    font-size: medium;
+    padding-left: 20px;
+    outline: none;
+    outline-style: none;
 }
   
+.Submit-Button{
+    background-color: #FB9B3B;
+    height: 6vh;
+    border-radius: 3vh;
+    stroke: #FB9B3B;
+    border-width: 2vmin;
+    margin-left: 2vmin;
+}

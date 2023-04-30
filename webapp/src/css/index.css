@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: medium;
 }
 
 code {
@@ -13,7 +14,14 @@ code {
 }
 
 span{
-  color:goldenrod;
+  color:#FB9B3B;
+  -webkit-text-stroke-color: #FB9B3B;
+}
+
+h1{
+  font-family: 'Fira Sans';
+  margin-top: 10vh;
+  font-size: 5vmin;
 }
 
 /* Quicksand */
