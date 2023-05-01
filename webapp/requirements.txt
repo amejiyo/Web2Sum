@@ -1,0 +1,5 @@
+react-router-dom
+react-dom
+react-native-card-stack
+react-scripts
+web-vitals
