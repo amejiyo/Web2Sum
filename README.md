@@ -6,6 +6,6 @@
 
 | Model  | Detail  | Paper  | Download  |
 | :------ | :------ | :------ | :------------ |
-| mT5: Multilingual T5 | Multilingual T5 (mT5) is a massively multilingual pretrained text-to-text transformer model | [mT5: A massively multilingual pre-trained text-to-text transformer](https://arxiv.org/abs/2010.11934) | [Github](https://github.com/google-research/multilingual-t5) |
+| [mT5-multilingual-XLSum](https://huggingface.co/csebuetnlp/mT5_multilingual_XLSum#mt5-multilingual-xlsum) | Multilingual T5 (mT5): a massively multilingual pretrained text-to-text transformer model finetuned on the 45 languages of XL-Sum dataset. | [XL-Sum: Large-Scale Multilingual Abstractive Summarization for 44 Languages](https://aclanthology.org/2021.findings-acl.413/) | [Github](https://github.com/csebuetnlp/xl-sum) |
 
 
