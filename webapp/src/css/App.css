@@ -1,5 +1,10 @@
 .App{
+    position: absolute;
     text-align: center;
+    background-color: white;
+    overflow-y: hidden;
+    height: 100vh;
+    width: 100vw;
 }
 
 .App-link {
@@ -8,34 +13,34 @@
   
 
 .HomeHeader{
-    font-size: calc(40px + 3vmin);;
+    font-size: calc(50px + 5vmin);;
     font-weight:bolder;
     color: #282c34;
     letter-spacing: 1vmin;
     font-family: 'Quicksand';
-    flex-direction: column;
-    align-items: center;
+    display: flex;
     justify-content: center;
+    align-items:flex-end;
+    flex-wrap: wrap;
     margin-top: 20vh;
-    -webkit-text-stroke-width: 2px;
+    margin-bottom: 5vh;
+    -webkit-text-stroke-width: 5px;
     -webkit-text-stroke-color: #282c34;
 }
 
 .App-logo {
-    height: 10vmin;
-    pointer-events: none;
-    stroke-width: 2vmin;
+    height: 15vmin;
+    pointer-events: all;
     margin-right: 2vmin;
 }
 
 .Search-Box{
-    border-color: #FB9B3B;
+    border:  2px solid #FB9B3B;
     border-radius: 2vmin;
     height: 5vh;
     width: 50vw;
-    border-width: 2px;
-    color: darkgray;
-    font-size: medium;
+    color: #999999;
+    font-size: larger;
     padding-left: 20px;
     outline: none;
     outline-style: none;
@@ -54,4 +59,35 @@
     justify-content: center;
     align-items:flex-end;
     flex-wrap: wrap;
+}
+
+.Rectangle{
+    position: absolute;
+    top: 70vh;
+    width: 41.5vw;
+    height: 35vh;
+    background-color: #f7f7f7;
+    border-top-right-radius: 1vh;
+    border-top-left-radius: 1vh;
+}
+
+.Top-Right{
+    position: absolute;
+    top: 2vh;
+    right: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    flex-wrap: wrap;
+    font-family: 'Quicksand';
+    letter-spacing: 2px;
+    font-weight:normal;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #E8E8E8;
+    color: #E8E8E8;
+}
+.Git-logo {
+    height: 50px;
+    pointer-events:all;
+    margin-left: 2vmin;
 }

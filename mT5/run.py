@@ -1,6 +1,6 @@
 import re
 import os
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, BertGenerationEncoder, BertGenerationDecoder, EncoderDecoderModel, BertTokenizer
 # pip install transformers
 import warnings
 warnings.filterwarnings("ignore")
@@ -16,6 +16,11 @@ with open(os.path.join(file_path, "input_text.txt"), "r", encoding="UTF-8") as f
 model_name = "csebuetnlp/mT5_multilingual_XLSum"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+encoder = BertGenerationEncoder.from_pretrained("bert-large-uncased", bos_token_id=101, eos_token_id=102)
+decoder = BertGenerationDecoder.from_pretrained("bert-large-uncased", add_cross_attention=True, is_decoder=True, bos_token_id=101, eos_token_id=102)
+
+sentence_fuser = EncoderDecoderModel.from_pretrained("google/roberta2roberta_L-24_discofuse")
+
 
 input_ids = tokenizer(
     [WHITESPACE_HANDLER(article_text)],
@@ -38,7 +43,9 @@ summary = tokenizer.decode(
     clean_up_tokenization_spaces=False
 )
 
-
+input_ids = tokenizer(article_text, add_special_tokens=False, return_tensors="pt").input_ids
+outputs = sentence_fuser.generate(input_ids)
+print(tokenizer.decode(outputs[0]))
 with open(os.path.join(file_path, "output_text.txt"), "w", encoding="UTF-8") as file:
     file.write(summary)
 file.close()
