@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import { useNavigate } from "react-router-dom";
 import "../css/App.css"
 import "../css/index.css"
 import search from "../assets/icon/logo.svg"
@@ -10,7 +10,25 @@ import arrow from "../assets/icon/normal_right.svg"
 const defautText = "Enter website ...";
 const normal_text = ["#282c34", '3px'];
 const unselect_text = ["darkgray", '2px'];
+const color_submit_bt = ["#FB9B3B","#CA7D31"];
 
+function OnSubmit(){
+    const navigate = useNavigate();
+    const ChangeColor = (i) => {
+        var d = document.getElementById("submitButton");
+        d.style.backgroundColor = color_submit_bt[i];
+        d.style.borderColor = color_submit_bt[i];
+    }
+    return(
+    <img src={arrow} 
+        id='submitButton'
+        className='Submit-Button' 
+        onClick={()=>navigate("/Dashboard")}
+        onPointerLeave={()=>ChangeColor(0)}
+        onPointerEnter={()=>ChangeColor(1)}
+    />
+    );
+}
 export default class Home extends Component{
     constructor(props)
     {
@@ -51,7 +69,7 @@ export default class Home extends Component{
             <h1 className='HomeHeader'>
                 <img src={search} className='App-logo' alt='search'/>
                 Web<span>2</span>Sum</h1>
-                <p>
+                <div className='In-Line'>
                     <input className='Search-Box' 
                     id="input-box"
                     onChange={()=>this.handleChange()}
@@ -59,8 +77,8 @@ export default class Home extends Component{
                     defaultValue={defautText}
                     onPointerLeave={()=>this.handleReset()}
                     onPointerEnter={()=>this.handleOnStay()}/>
-                    <img src={arrow} className='Submit-Button'/>
-                </p>
+                    <OnSubmit/>
+                </div>
 
         </div>
     )

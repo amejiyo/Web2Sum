@@ -43,9 +43,15 @@
   
 .Submit-Button{
     background-color: #FB9B3B;
-    height: 6vh;
+    height: 4vh;
     border-radius: 3vh;
-    stroke: #FB9B3B;
-    border-width: 2vmin;
     margin-left: 2vmin;
+    border: 1vh solid  #FB9B3B;
+}
+
+.In-Line{
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    flex-wrap: wrap;
 }
