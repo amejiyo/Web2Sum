@@ -1,9 +1,17 @@
+:root {
+    --bgColor: white;
+    --fontHometitle: calc(50px + 5vmin); 
+    --fontFam: 'Quicksand';
+    --colorNormalText: #282c34;
+    --yellowText: #FB9B3B;
+    --unselect: #E8E8E8;
+    --unselectYellow: #FFEFDF;
+  }
 .App{
     position: absolute;
     text-align: center;
-    background-color: white;
+    background-color: var(--bgColor);
     overflow-y: hidden;
-    height: 100vh;
     width: 100vw;
 }
 
@@ -12,12 +20,12 @@
   }
   
 
-.HomeHeader{
-    font-size: calc(50px + 5vmin);;
+.HomeTitle{
+    font-size: var(--fontHometitle);
     font-weight:bolder;
-    color: #282c34;
+    color: var(--colorNormalText);
     letter-spacing: 1vmin;
-    font-family: 'Quicksand';
+    font-family: var(--fontFam);
     display: flex;
     justify-content: center;
     align-items:flex-end;
@@ -25,7 +33,7 @@
     margin-top: 20vh;
     margin-bottom: 5vh;
     -webkit-text-stroke-width: 5px;
-    -webkit-text-stroke-color: #282c34;
+    -webkit-text-stroke-color: var(--colorNormalText);
 }
 
 .App-logo {
@@ -35,11 +43,11 @@
 }
 
 .Search-Box{
-    border:  2px solid #FB9B3B;
+    border:  1px solid var(--yellowText);
     border-radius: 2vmin;
     height: 5vh;
     width: 50vw;
-    color: #999999;
+    color: #A6A6A6;
     font-size: larger;
     padding-left: 20px;
     outline: none;
@@ -47,11 +55,11 @@
 }
   
 .Submit-Button{
-    background-color: #FB9B3B;
+    background-color: var(--yellowText);
     height: 4vh;
     border-radius: 3vh;
     margin-left: 2vmin;
-    border: 1vh solid  #FB9B3B;
+    border: 1vh solid var(--yellowText);
 }
 
 .In-Line{
@@ -62,19 +70,27 @@
 }
 
 .Rectangle{
-    position: absolute;
-    top: 70vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
     width: 41.5vw;
-    height: 35vh;
     background-color: #f7f7f7;
-    border-top-right-radius: 1vh;
-    border-top-left-radius: 1vh;
+    border-radius: 3vh;
+    margin-bottom: 15vh;
+    overflow-y: scroll;
+}
+
+.Header{
+    position: fixed;
+    display: flex;
+    border: 2vh solid white;
+    width: 96vw;
+    height: 5vh;
+    justify-content:space-between;
+    align-items:flex-start;
+    background-color: white;
 }
 
 .Top-Right{
-    position: absolute;
-    top: 2vh;
-    right: 2vh;
     display: flex;
     justify-content: center;
     align-items:flex-end;
@@ -83,11 +99,31 @@
     letter-spacing: 2px;
     font-weight:normal;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #E8E8E8;
-    color: #E8E8E8;
+    -webkit-text-stroke-color: var(--unselect);
+    color: var(--unselect);
 }
+
+.Top-Left{
+    font-size: calc(50px + 5vmin);
+    font-weight:bolder;
+    color: var(--colorNormalText);
+    letter-spacing: 1vmin;
+    font-family: 'Quicksand';
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: var(--colorNormalText);
+    transform: scale(0.3) translate(-115%, -115%);
+}
+
 .Git-logo {
     height: 50px;
     pointer-events:all;
     margin-left: 2vmin;
+}
+
+.Start-lvl{
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    flex-wrap: wrap;
+    margin-top: 25vh;
 }

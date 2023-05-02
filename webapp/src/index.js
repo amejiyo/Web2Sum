@@ -6,7 +6,7 @@ import {
   } from "react-router-dom";
 
 import Home from "./components/Home";
-import Dashboard from "./components/Dashboard";
+import { Header, GitIcon } from './components/Header';
 import PageNotFound from "./components/PageNotFound";
 import ReactDOM from 'react-dom/client';
 import './css/index.css';
@@ -19,7 +19,6 @@ root.render(
     <Router>
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Dashboard" element={<Dashboard />} />
             <Route path="/*" element={<PageNotFound />} />
         </Routes>
     </Router>
