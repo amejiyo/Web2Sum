@@ -24,6 +24,12 @@ html {
   scroll-behavior: smooth;
 }
 
+p{
+  font-family: 'Quicksand';
+  font-size: large;
+  font-weight: bolder;
+}
+
 /* Quicksand */
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 /* Sarabun */

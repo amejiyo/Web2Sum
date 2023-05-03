@@ -6,6 +6,7 @@
     --yellowText: #FB9B3B;
     --unselect: #E8E8E8;
     --unselectYellow: #FFEFDF;
+    --unselectText: #777777;
   }
 .App{
     position: absolute;
@@ -76,14 +77,25 @@
     background-color: #f7f7f7;
     border-radius: 3vh;
     margin-bottom: 15vh;
+    border: #f7f7f7 solid 1px;
+}
+
+.OutputText{
+    font-size: larger;
+    text-align: justify;
     overflow-y: scroll;
+    margin: 3vh;
+    width: 88%;
+    background-color: transparent;
+    border: none;
+    color: var(--unselectText);
 }
 
 .Header{
     position: fixed;
     display: flex;
     border: 2vh solid white;
-    width: 96vw;
+    width: 98vw;
     height: 5vh;
     justify-content:space-between;
     align-items:flex-start;
