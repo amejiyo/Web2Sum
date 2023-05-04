@@ -4,9 +4,13 @@ import "../css/App.css"
 import "../css/index.css"
 
 // import js function
-import { GitIcon, LogoTop } from './Header';
-import { OnSubmit, OnWebScrpSubmit } from './SubmitButton';
-import { InputBox } from './InputBox';
+import { GitIcon, LogoTop } from './utils/Header';
+import { OnSubmit, OnWebScrpSubmit } from './utils/SubmitButton';
+import { InputBox } from './utils/InputBox';
+import { CopyButton } from './utils/CopyToClipboard';
+import { LikeButton } from './utils/LikeIcon';
+import { GetLonger, Getshorter } from './utils/ExtraButton';
+
 // import image file
 import search from "../assets/icon/logo.svg"
 
@@ -26,7 +30,7 @@ export default class Home extends Component{
                     <img src={search} className='App-logo' alt='search'/>
                     Web<span>2</span>sum
                 </h1>
-                <div className='In-Line'>
+                <div id='search-line' className='In-Line'>
                     <InputBox/>
                     <OnSubmit/>
                 </div>
@@ -36,8 +40,17 @@ export default class Home extends Component{
                             <OnWebScrpSubmit/>
                         </div>
                         <div id='summarize-rec' className='Rectangle' style={{height: "35vh"}}>
-                            <p  id='summarize-text' className='OutputText' style={{height: "80%"}}>
-                            </p>
+                            <p  id='summarize-text' className='OutputText' style={{height: "70%"}}/>
+                                <div className='In-Line' style={{justifyContent:"space-between"}}>
+                                    <div className='In-Line' id="extra-button" style={{visibility:"hidden"}}>
+                                        <Getshorter/>
+                                        <GetLonger/>
+                                    </div>
+                                    <div>
+                                        <CopyButton/>
+                                        <LikeButton/>
+                                    </div>
+                                </div>
                         </div>
                     </div>
             </div>

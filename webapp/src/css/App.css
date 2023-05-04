@@ -1,12 +1,15 @@
 :root {
     --bgColor: white;
-    --fontHometitle: calc(50px + 5vmin); 
+    --fontHometitle: calc(11vmin); 
     --fontFam: 'Quicksand';
-    --colorNormalText: #282c34;
+    --norlmalFontsize: 2.5vmin;
+    --colorNormalText: #282B2D;
     --yellowText: #FB9B3B;
     --unselect: #E8E8E8;
     --unselectYellow: #FFEFDF;
     --unselectText: #777777;
+    --recColor: #f7f7f7;
+    --yellowBgbt: #FFE0C2;
   }
 .App{
     position: absolute;
@@ -31,9 +34,9 @@
     justify-content: center;
     align-items:flex-end;
     flex-wrap: wrap;
-    margin-top: 20vh;
+    margin-top: 25vh;
     margin-bottom: 5vh;
-    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-width: 0.5vmin;
     -webkit-text-stroke-color: var(--colorNormalText);
 }
 
@@ -45,11 +48,11 @@
 
 .Search-Box{
     border:  1px solid var(--yellowText);
-    border-radius: 2vmin;
-    height: 5vh;
+    border-radius: 3vmin;
+    height: 6vh;
     width: 50vw;
     color: #A6A6A6;
-    font-size: larger;
+    font-size: var(--norlmalFontsize);
     padding-left: 20px;
     outline: none;
     outline-style: none;
@@ -58,7 +61,7 @@
 .Submit-Button{
     background-color: var(--yellowText);
     height: 4vh;
-    border-radius: 3vh;
+    border-radius: 4vh;
     margin-left: 2vmin;
     border: 1vh solid var(--yellowText);
 }
@@ -66,37 +69,48 @@
 .In-Line{
     display: flex;
     justify-content: center;
-    align-items:flex-end;
+    align-items:flex-start;
     flex-wrap: wrap;
 }
 
+.Start-lvl{
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    flex-wrap: wrap;
+    margin-top: 20vh;
+}
+
 .Rectangle{
-    margin-left: 1vw;
-    margin-right: 1vw;
-    width: 41.5vw;
-    background-color: #f7f7f7;
-    border-radius: 3vh;
+    margin-left: 0.75vw;
+    margin-right: 0.75vw;
+    width: 40vw;
+    background-color: var(--recColor);
+    border-radius: 15px;
     margin-bottom: 15vh;
-    border: #f7f7f7 solid 1px;
+    border: var(--recColor) solid 1px;
+    padding-bottom: 1vmin;
 }
 
 .OutputText{
-    font-size: larger;
+    font-size: var(--norlmalFontsize);
     text-align: justify;
     overflow-y: scroll;
     margin: 3vh;
     width: 88%;
     background-color: transparent;
+    outline: 0;
     border: none;
     color: var(--unselectText);
+    resize: none;
 }
 
 .Header{
     position: fixed;
     display: flex;
-    border: 2vh solid white;
+    border: 1vw solid white;
     width: 98vw;
-    height: 5vh;
+    height: 3vmax;
     justify-content:space-between;
     align-items:flex-start;
     background-color: white;
@@ -105,37 +119,75 @@
 .Top-Right{
     display: flex;
     justify-content: center;
-    align-items:flex-end;
+    align-items: center;
     flex-wrap: wrap;
     font-family: 'Quicksand';
-    letter-spacing: 2px;
-    font-weight:normal;
-    -webkit-text-stroke-width: 1px;
+    letter-spacing: 0.3vmin;
+    font-weight: normal;
+    -webkit-text-stroke-width: 0.1vmin;
     -webkit-text-stroke-color: var(--unselect);
     color: var(--unselect);
+    font-size: var(--norlmalFontsize);
 }
 
 .Top-Left{
-    font-size: calc(50px + 5vmin);
+    font-size: calc(11vmin);
     font-weight:bolder;
     color: var(--colorNormalText);
     letter-spacing: 1vmin;
     font-family: 'Quicksand';
-    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-width: 0.5vmin;
     -webkit-text-stroke-color: var(--colorNormalText);
     transform: scale(0.3) translate(-115%, -115%);
 }
 
 .Git-logo {
-    height: 50px;
+    height: 5vmin;
     pointer-events:all;
-    margin-left: 2vmin;
+    margin-left: 1vmin;
 }
 
-.Start-lvl{
-    display: flex;
-    justify-content: center;
-    align-items:flex-start;
-    flex-wrap: wrap;
-    margin-top: 25vh;
+.Copy-Icon{
+    height: 3vmin;
+    pointer-events: all;
+    right: 0;    
+    background-color: var(--recColor);
+    border-radius: 5vmin;
+    border: 0.5vh solid var(--recColor);
+    margin-right: 1vh;
+}
+
+.Like-Icon{
+    height: 3vmin;
+    pointer-events: all;
+    background-color: var(--recColor);
+    border-radius: 5vmin;
+    border: 0.5vh solid var(--recColor);
+    margin-right: 2vh;
+}
+
+.Right-Icon{
+    height: 2vmin;
+    pointer-events: all;
+    margin-bottom: -0.5vmin;
+}
+
+.Left-Icon{
+    height: 2vmin;
+    pointer-events: all;
+    margin-bottom: -0.5vmin;
+    transform: scaleX(-1);
+}
+
+.ExtraButton{
+    font-size: 1.7vmin;
+    width: 11vmin;
+    border: 1vmin solid var(--yellowBgbt);
+    border-radius: 2vmin;
+    background-color: var(--yellowBgbt);
+    outline: 0;
+    color: var(--yellowText);
+    font-weight: bolder;
+    margin-left: 2vh;
+    visibility: inherit;
 }

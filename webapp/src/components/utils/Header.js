@@ -1,20 +1,17 @@
 import React from 'react';
 
 // import image file
-import gitHub_dark from "../assets/icon/grey_github.svg"
-import gitHub from "../assets/icon/normal_github.svg"
-import search from "../assets/icon/logo.svg"
-
-const git_icon = [[gitHub, "#E8E8E8"], [gitHub_dark, "#777777"]]
-
+import search from "../../assets/icon/logo.svg"
+import { setSummaryDisable, setWebScrapDisable } from './SubmitButton';
+import { main } from "../Params"
 
 export function GitIcon(){
     const ChangeIcon = (i) =>{
         var d = document.getElementById("gitLogo");
         var text = document.getElementById("gitText");
-        text.style.color = git_icon[i][1];
-        text.style.webkitTextStrokeColor = git_icon[i][1];
-        d.src = git_icon[i][0];
+        text.style.color = main.git_icon[i][1];
+        text.style.webkitTextStrokeColor = main.git_icon[i][1];
+        d.src = main.git_icon[i][0];
     }
     return(
     <header className='Top-Right' id="gitText"
@@ -22,23 +19,36 @@ export function GitIcon(){
         onPointerEnter={()=>ChangeIcon(1)}
         onPointerLeave={()=>ChangeIcon(0)}
         > <p>Visit us</p>
-        <img src={gitHub} className='Git-logo' alt="gitLogo" id="gitLogo"/>
+        <img src={main.git_icon[0][0]} className='Git-logo' alt="gitLogo" id="gitLogo"/>
     </header>
     );
 }
 
+function resetToDefault(){
+    var input_box = document.getElementById("input-box");
+    var submit_button = document.getElementById("submitButton");
+    submit_button.style.backgroundColor = main.color_disable[1];
+    submit_button.style.borderColor = main.color_disable[1];
+    input_box.style.borderColor = main.color_disable[1];
+    main.color_submit_bt = main.color_enable_bt;
+    document.getElementById("summarize-text").innerHTML = "";
+    document.getElementById("webScrap-text").value = "";
+    setSummaryDisable();
+    setWebScrapDisable();
+}
 export function LogoTop(){
     const handleOnClick = (e) =>{
         e.preventDefault();
         var d = document.getElementById("dashboard");
         d.style.marginTop = "25vh";
-        var submitButton = document.getElementById("submitButton");
+        var submitButton = document.getElementById("search-line");
         submitButton.style.marginTop = "0vh";
         const offsetTop = document.querySelector('#dashboard').offsetTop;
         window.scrollTo({
           behavior: 'smooth',
           top: 0
         });
+        resetToDefault();
     }
     return (
         <header className='Top-Left' id="logo-top"

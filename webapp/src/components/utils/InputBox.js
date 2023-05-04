@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { main } from './Params';
+import { main } from '../Params';
 
 var webLink = main.defautText;
 

@@ -1,20 +1,24 @@
 import React from 'react';
 import { getData, getSummary } from './RunPython';
-import { main } from './Params';
-import arrow from "../assets/icon/normal_right.svg"
+import { main } from '../Params';
+import arrow from "../../assets/icon/normal_right.svg"
 
 async function handleClick2Scroll(e) {
     setToDisable();
     e.preventDefault();
     var d = document.getElementById("dashboard");
     d.style.marginTop = "8vh";
-    var submitButton = document.getElementById("submitButton");
+    var submitButton = document.getElementById("search-line");
     submitButton.style.marginTop = "20vh";
     const offsetTop = document.querySelector('#dashboard').offsetTop;
     window.scrollTo({
       behavior: 'smooth',
       top: offsetTop
     });
+    SentLink();
+  }
+
+async function SentLink(){
     var input = document.getElementById("input-box").value;
     var webScrap_text = document.getElementById("webScrap-text");
     var webScrap_rec = document.getElementById("webScrap-rec");
@@ -31,8 +35,9 @@ async function handleClick2Scroll(e) {
         webScrap_rec.style.borderColor = main.color_enable_bt[0];
         webScrap_rec.style.backgroundColor = "white";
         webScrap_sub.style.visibility = "visible";
+        setSummaryDisable();
     }
-  }
+}
 
 function setToDisable(){
     var input_box = document.getElementById("input-box");
@@ -40,11 +45,60 @@ function setToDisable(){
     main.color_submit_bt = main.color_disable_bt;
 }
 
+export function setWebScrapDisable(){
+    var webScrap_text = document.getElementById("webScrap-text");
+    var webScrap_rec = document.getElementById("webScrap-rec");
+    var webScrap_sub = document.getElementById("webScrap-sub");
+    webScrap_text.value = "";
+    webScrap_rec.style.borderColor = main.sum_box[0][0];
+    webScrap_rec.style.backgroundColor = main.sum_box[0][0];
+    webScrap_sub.style.visibility = "hidden";
+}
+
+function setExtraIcontoDefault(){
+    var copy_icon = document.getElementById("copy-icon");
+    var like_icon = document.getElementById("like-icon");
+    copy_icon.src = main.copy_icon[0][0];
+    like_icon.src = main.like_icon[0][0];
+    copy_icon.style.backgroundColor = main.like_icon[0][1];
+    copy_icon.style.borderColor = main.like_icon[0][1];
+    like_icon.style.backgroundColor = main.like_icon[0][1];
+    like_icon.style.borderColor = main.like_icon[0][1];
+}
+
+function setSummaryEnable(){
+    main.copy_icon = main.copy_enable_bt;
+    main.like_icon = main.like_enable_bt;
+    var summarize_rec = document.getElementById("summarize-rec");
+    var summarize_text = document.getElementById("summarize-text");
+    summarize_rec.style.backgroundColor = main.sum_box[1][0];
+    summarize_text.style.color = main.sum_box[1][1];
+    setExtraIcontoDefault();
+    var extra_button = document.getElementById("extra-button");
+    extra_button.style.visibility = "visible";
+}
+
+export function setSummaryDisable(){
+    main.copy_icon = main.copy_disable_bt;
+    main.like_icon = main.like_disable_bt;
+    var summarize_rec = document.getElementById("summarize-rec");
+    var summarize_text = document.getElementById("summarize-text");
+    summarize_rec.style.backgroundColor = main.sum_box[0][0];
+    summarize_text.style.color = main.sum_box[0][1];
+    setExtraIcontoDefault();
+    var extra_button = document.getElementById("extra-button");
+    extra_button.style.visibility = "hidden";
+
+}
+
 async function handleSummarize() {
     var input = document.getElementById("webScrap-text").value;
     var summarize_text = document.getElementById("summarize-text");
     var output = await getSummary(input);
-    summarize_text.innerHTML = output;
+    if (output){
+        summarize_text.innerHTML = output;
+        setSummaryEnable();
+    }
   }
 
 export function OnSubmit(){
@@ -52,6 +106,8 @@ export function OnSubmit(){
         var d = document.getElementById("submitButton");
         d.style.backgroundColor = main.color_submit_bt[i];
         d.style.borderColor = main.color_submit_bt[i];
+        var input_box = document.getElementById("input-box");
+        input_box.style.borderColor = main.color_submit_bt[i];
     }
     return(
         <img src={arrow} 

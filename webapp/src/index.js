@@ -7,7 +7,6 @@ import {
   } from "react-router-dom";
 
 import Home from "./components/Home";
-import { Header, GitIcon } from './components/Header';
 import PageNotFound from "./components/PageNotFound";
 import ReactDOM from 'react-dom/client';
 import './css/index.css';
