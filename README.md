@@ -2,6 +2,12 @@
  A mockup web application of web scraper to text summarize with word length selection
 
 
+## Appendix
+📁[Google Drive](https://drive.google.com/drive/folders/1eycRcO2_xs6bJd0_1lCI4ZjrOXV2N7mn?usp=sharing) | 
+📄[Report Docs](https://docs.google.com/document/d/1KUCkL23nc9xgmZlUj43Libs7y7ZtmHPQwx8gPfH73Rc/edit?usp=sharing) | 
+💻[Presentation](https://www.canva.com/design/DAFh8M8fXhA/JeDjh2_DTnQxwcFyZrYz0g/edit?utm_content=DAFh8M8fXhA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+
 ## Pretrained
 
 | Model  | Detail  | Paper  | Download  |
