@@ -35,7 +35,7 @@ export default class Home extends Component{
                     <OnSubmit/>
                 </div>
                     <div id="dashboard" className='Start-lvl'>
-                        <div id='webScrap-rec' className='Rectangle' style={{height: "50vh"}}>
+                        <div id='webScrap-rec' className='Rectangle' style={{height: "60vh"}}>
                             <textarea className='OutputText' id='webScrap-text' style={{height: "88%"}}/>
                             <OnWebScrpSubmit/>
                         </div>

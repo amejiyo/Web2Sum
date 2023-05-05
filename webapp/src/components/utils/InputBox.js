@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { main } from '../Params';
+import { setToDisable } from "./SubmitButton";
 
 var webLink = main.defautText;
 
@@ -36,9 +37,16 @@ function handleOnStay(){
 }
 
 export function InputBox(){
+    const Enter2Submit = (e) =>{
+        if (e.key === "Enter"){
+            setToDisable();
+            document.getElementById("submitButton").click();
+        }
+    }
     return(                    
         <input className='Search-Box' 
         id="input-box"
+        onKeyPress={(e) => Enter2Submit(e)}
         onChange={()=>handleChange()}
         onClick={()=>handleOnClick()}
         defaultValue={main.defautText}

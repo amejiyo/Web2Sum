@@ -26,7 +26,8 @@ function fallbackCopyTextToClipboard(text) {
   }
 
 function copyTextToClipboard() {
-  if (main.copy_icon === main.color_enable_bt){
+  console.log(main.copy_icon === main.copy_enable_bt);
+  if (main.copy_icon === main.copy_enable_bt){
     var text = document.getElementById("summarize-text").innerHTML;
     if (!navigator.clipboard) {
       fallbackCopyTextToClipboard(text);

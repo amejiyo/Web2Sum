@@ -23,6 +23,7 @@ const main = {
     copy_enable_bt : [[yellow_copy, "#FFEFDF"], [white_copy, "#FFE0C2"]],
     like_enable_bt : [[yellow_like, "#FFEFDF"], [white_like, "#FFE0C2"]],
     sum_box : [["#f7f7f7", "#777777"], ["#FFEFDF", "#FB9B3B"]],
+    sum_bt: ["#f7f7f7", "#f7f7f7"],
     extra_bt : ["#FFE0C2", "white"],
 }
 
