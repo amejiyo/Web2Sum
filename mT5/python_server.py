@@ -37,6 +37,6 @@ def handleSummarize(transaction_id):
         return {'result': input_link[transaction_id]}
     
 # run app
-app.run(debug=True, host='localhost', port=8989)
+app.run(debug=True, host='https://websum.onrender.com/home', port=8989)
 
 # https://www.thairath.co.th/news/local/1830689
