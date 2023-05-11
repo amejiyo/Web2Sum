@@ -17,10 +17,10 @@ model_name = "csebuetnlp/mT5_multilingual_XLSum"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 
-encoder = BertGenerationEncoder.from_pretrained("bert-large-uncased", bos_token_id=101, eos_token_id=102)
-decoder = BertGenerationDecoder.from_pretrained("bert-large-uncased", add_cross_attention=True, is_decoder=True, bos_token_id=101, eos_token_id=102)
+encoder = BertGenerationEncoder.from_pretrained("bert-base-multilingual-cased", bos_token_id=101, eos_token_id=102)
+decoder = BertGenerationDecoder.from_pretrained("bert-base-multilingual-cased", add_cross_attention=True, is_decoder=True, bos_token_id=101, eos_token_id=102)
 
-sentence_fuser = EncoderDecoderModel.from_pretrained("google/roberta2roberta_L-24_discofuse")
+sentence_fuser = EncoderDecoderModel.from_pretrained("bert-base-multilingual-cased")
 
 
 input_ids = tokenizer(
