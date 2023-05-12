@@ -10,9 +10,9 @@ pip install --no-cache-dir transformers sentencepiece simpletransformers==0.63.4
 
 Table of content
 
-- A) Get Summarized output
-- B) Get Summarized output + Attention score
-
+- [A) Get Summarized output](https://github.com/amejiyo/WebSum/blob/main/mT5thai/README.md#a-get-summarized-output)
+- [B) Get Summarized output + Attention score](https://github.com/amejiyo/WebSum/blob/main/mT5thai/README.md#b-get-summarized-output--attention-score)
+- [C) Highlight & export as .html format](https://github.com/amejiyo/WebSum/blob/main/mT5thai/README.md#c-highlight--export-as-html-format)
 
 
 ### A. Get Summarized output
