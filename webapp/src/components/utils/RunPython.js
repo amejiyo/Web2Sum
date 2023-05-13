@@ -49,7 +49,7 @@ export async function getSummary(input) {
     }).then(function(response){
         return response.json();
     }).then(function(text){
-        return JSON.parse(JSON.stringify(text)).result;
+        return JSON.parse(JSON.stringify(text));
     });
     return response;
 }
@@ -76,18 +76,7 @@ export async function editSummary(input) {
     }).then(function(response){
         return response.json();
     }).then(function(text){
-        return JSON.parse(JSON.stringify(text)).result;
+        return JSON.parse(JSON.stringify(text));
     });
     return response;
 }
-
-// function runPyScript(input){
-//     var jqXHR = $.ajax({
-//         type: "POST",
-//         url: "/login",
-//         async: false,
-//         data: { mydata: input }
-//     });
-
-//     return jqXHR.responseText;
-// }

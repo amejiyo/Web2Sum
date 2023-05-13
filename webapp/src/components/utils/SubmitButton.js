@@ -30,12 +30,12 @@ async function SentLink(){
     var summarize_text = document.getElementById("summarize-text");
     summarize_text.innerHTML = "Summarization";
     if (input === main.defautText){
-        webScrap_text.value = "Enter paragrah ...";
+        webScrap_text.innerText = "Enter paragrah ...";
     }
     else{
-        webScrap_text.value = "Enter paragrah ...";
+        webScrap_text.innerText = "Enter paragrah ...";
         var output = await getData(input);
-        webScrap_text.value = output;
+        webScrap_text.innerText = output;
         webScrap_rec.style.borderColor = main.color_enable_bt[0];
         webScrap_rec.style.backgroundColor = "white";
         webScrap_sub.style.visibility = "visible";
@@ -79,7 +79,7 @@ function setExtraIcontoDefault(){
     like_icon.style.borderColor = main.like_icon[0][1];
 }
 
-function setSummaryEnable(){
+export function setSummaryEnable(){
     main.copy_icon = main.copy_enable_bt;
     main.like_icon = main.like_enable_bt;
     var summarize_rec = document.getElementById("summarize-rec");
@@ -108,12 +108,17 @@ export function setSummaryDisable(){
 }
 
 async function handleSummarize() {
-    var input = document.getElementById("webScrap-text").value;
+    var input = document.getElementById("webScrap-text");
     var summarize_text = document.getElementById("summarize-text");
-    var output = await getSummary(input);
-    if (output){
-        summarize_text.innerHTML = output;
+    var output = await getSummary(input.innerText);
+    console.log(output);
+    if (output.flag === "1"){
+        summarize_text.innerHTML = output.result;
+        input.innerHTML = output.input_text;
         setSummaryEnable();
+    }
+    else if (output.flag === "0"){
+        summarize_text.innerHTML = output.result;
     }
   }
 

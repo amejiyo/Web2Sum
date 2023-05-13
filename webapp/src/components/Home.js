@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import $ from 'jquery';
+
 // import css
 import "../css/App.css"
 import "../css/index.css"
@@ -36,7 +38,7 @@ export default class Home extends Component{
                 </div>
                     <div id="dashboard" className='Start-lvl'>
                         <div id='webScrap-rec' className='Rectangle' style={{height: "60vh"}}>
-                            <textarea className='OutputText' id='webScrap-text' style={{height: "88%"}}/>
+                            <p contentEditable className='OutputText' id='webScrap-text' style={{height: "88%"}}/>
                             <OnWebScrpSubmit/>
                         </div>
                         <div id='summarize-rec' className='Rectangle' style={{height: "35vh"}}>
