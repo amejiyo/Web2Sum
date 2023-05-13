@@ -10,23 +10,23 @@ def html_escape(text):
     return html.escape(text)
 
 # Highlight & export function
-def highlightedText(tokens, attention, encoder1: int=6, encoder2: int=0, pad='', max_alpha=0.6, save_html=False) -> list:
+def highlightedText(tokens, attention, encoder1: int=11, encoder2: int=8, pad='', max_alpha=0.8, save_html=False) -> list:
     '''
     https://adataanalyst.com/machine-learning/highlight-text-using-weights/
     '''
     highlighted_text = []
     for i, word in enumerate(tokens):
-        if word=='▁': word = ' ' # change space '▁' to ' '
-        if '▁' in word: word = word.replace('▁', ' ')
-        if '▁' in word: print(word)
 
-        df_sumcol = pd.DataFrame(attention[encoder1][0][encoder2]).sum(axis=0)
+        if '▁' in word: word = word.replace('▁', ' ') # change space '▁' to ' '
+
+        df_sumcol = pd.DataFrame( attention[encoder1][0][encoder2] ).sum(axis=0) # reduce dim(N, N) to dim(N, 1) by sum column
+        df_sumcol /= df_sumcol.abs().max() # normalize
+
         weight = df_sumcol[i]
         
-        if weight is not None:
-            highlighted_text.append('' + html_escape(word) + '')
-        else:
-            highlighted_text.append(word)
+        highlighted_text.append('<span style="background-color:rgba(251,155,59,' + str(weight * max_alpha) + ');">' + html_escape(word) + '</span>')
+        # highlighted_text.append('' + html_escape(word) + '')
+        
     highlighted_text = pad.join(highlighted_text)
 
     display(HTML(highlighted_text))
