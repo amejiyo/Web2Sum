@@ -13,9 +13,10 @@ export function GitIcon(){
         text.style.webkitTextStrokeColor = main.git_icon[i][1];
         d.src = main.git_icon[i][0];
     }
+    var strWindowFeatures = "location=yes,scrollbars=yes,status=yes";
     return(
     <header className='Top-Right' id="gitText"
-        onClick={()=>{window.location.href = "https://github.com/amejiyo/WebSum"}}
+        onClick={()=>{window.open("https://github.com/amejiyo/WebSum", "_blank", strWindowFeatures)}}
         onPointerEnter={()=>ChangeIcon(1)}
         onPointerLeave={()=>ChangeIcon(0)}
         > <p>Visit us</p>

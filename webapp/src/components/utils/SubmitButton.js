@@ -119,6 +119,7 @@ async function handleSummarize() {
     }
     else if (output.flag === "0"){
         summarize_text.innerHTML = output.result;
+        summarize_text.style.color = "red";
     }
   }
 
@@ -139,6 +140,15 @@ export function OnSubmit(){
             onPointerEnter={()=>ChangeColor(1)}
         />
     );
+}
+
+export const TextChange = () => {
+    var webScrap_rec = document.getElementById("webScrap-rec");
+    var webScrap_sub = document.getElementById("webScrap-sub");
+    webScrap_rec.style.borderColor = main.color_enable_bt[0];
+    webScrap_rec.style.backgroundColor = "white";
+    webScrap_sub.style.visibility = "visible";
+    setSummaryDisable();
 }
 
 export function OnWebScrpSubmit(){

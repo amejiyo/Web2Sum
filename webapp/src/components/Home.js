@@ -12,6 +12,7 @@ import { InputBox } from './utils/InputBox';
 import { CopyButton } from './utils/CopyToClipboard';
 import { LikeButton } from './utils/LikeIcon';
 import { GetLonger, Getshorter } from './utils/ExtraButton';
+import { TextChange } from './utils/SubmitButton';
 
 // import image file
 import search from "../assets/icon/logo.svg"
@@ -38,11 +39,11 @@ export default class Home extends Component{
                 </div>
                     <div id="dashboard" className='Start-lvl'>
                         <div id='webScrap-rec' className='Rectangle' style={{height: "60vh"}}>
-                            <p contentEditable className='OutputText' id='webScrap-text' style={{height: "88%"}}/>
+                            <p contentEditable className='OutputText' id='webScrap-text' style={{height: "88%", color: "#282B2D"}} onClick={()=>TextChange()}/>
                             <OnWebScrpSubmit/>
                         </div>
-                        <div id='summarize-rec' className='Rectangle' style={{height: "35vh"}}>
-                            <p  id='summarize-text' className='OutputText' style={{height: "70%"}}/>
+                        <div id='summarize-rec' className='Rectangle' style={{height: "60vh"}}>
+                            <p  id='summarize-text' className='OutputText' style={{height: "80%"}}/>
                                 <div className='In-Line' style={{justifyContent:"space-between"}}>
                                     <div className='In-Line' id="extra-button" style={{visibility:"hidden"}}>
                                         <Getshorter/>

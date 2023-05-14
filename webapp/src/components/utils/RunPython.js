@@ -28,6 +28,8 @@ export async function getData(input) {
 }
 
 export async function getSummary(input) {
+    var summarize_text = document.getElementById("summarize-text");
+    summarize_text.innerText = "Model is loading ...";
     const id = nanoid() ;
     const url = `http://localhost:8989/home/summarize/${id}`;
     const req = await fetch(url,{
@@ -55,6 +57,8 @@ export async function getSummary(input) {
 }
 
 export async function editSummary(input) {
+    var summarize_text = document.getElementById("summarize-text");
+    summarize_text.innerHTML = "Model is loading ...";
     const id = nanoid() ;
     const url = `http://localhost:8989/home/summarize_edit/${id}`;
     const req = await fetch(url,{

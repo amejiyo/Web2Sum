@@ -96,7 +96,7 @@ class Mt5Thai():
         attention = self.current_output.encoder_attentions
         tokens = self.tokenizer.convert_ids_to_tokens(self.current_input_ids[0])
         try:
-            highlighted_text = highlightedText(tokens, attention, save_html=True)
+            highlighted_text = highlightedText(tokens, attention)
         except:
             return 400, self.feedback_code[400], -1
         return 200, output, highlighted_text
