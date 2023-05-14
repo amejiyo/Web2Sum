@@ -15,11 +15,6 @@ code {
     monospace;
 }
 
-span{
-  color:#FB9B3B;
-  -webkit-text-stroke-color: #FB9B3B;
-}
-
 html {
   scroll-behavior: smooth;
 }

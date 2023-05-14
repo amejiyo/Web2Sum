@@ -32,7 +32,7 @@ export default class Home extends Component{
             <div className='Body'>
                 <h1 className='HomeTitle'>
                     <img src={search} className='App-logo' alt='search'/>
-                    Web<span>2</span>sum
+                    Web<span style={{color:"#FB9B3B",WebkitTextStrokeColor: "#FB9B3B"}}>2</span>sum
                 </h1>
                 <div id='search-line' className='In-Line'>
                     <InputBox/>

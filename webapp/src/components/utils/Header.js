@@ -56,7 +56,7 @@ export function LogoTop(){
         <header className='Top-Left' id="logo-top"
         onClick={e=>{handleOnClick(e)}}>
         <img src={search} className='App-logo' id="text-top" alt='search'/>
-        Web<span id="2-top">2</span>sum
+        Web<span id="2-top" style={{color:"#FB9B3B",WebkitTextStrokeColor: "#FB9B3B"}}>2</span>sum
     </header>
     );
 }
