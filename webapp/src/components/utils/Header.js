@@ -2,7 +2,8 @@ import React from 'react';
 
 // import image file
 import search from "../../assets/icon/logo.svg"
-import { setSummaryDisable, setWebScrapDisable } from './SubmitButton';
+import { setSummaryDisable } from './Summary';
+import { setWebScrapDisable } from './WebScrapSubmit';
 import { main } from "../Params"
 
 export function GitIcon(){

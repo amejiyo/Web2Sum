@@ -1,6 +1,10 @@
 import { nanoid } from 'nanoid'
+import { main } from '../Params';
 
 export async function getData(input) {
+    var webScrap_text = document.getElementById("webScrap-text");
+    webScrap_text.innerText = "Insert text ...";
+    webScrap_text.style.color = main.unselect_text[0];
     const id = nanoid() ;
     const url = `http://localhost:8989/home/webscrap/${id}`;
     const req = await fetch(url,{

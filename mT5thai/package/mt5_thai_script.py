@@ -110,3 +110,6 @@ class Mt5Thai():
             return 500 , self.feedback_code[500], -1
         self.min_length -= 50
         return self.summarize()
+    
+    def reset_min_length(self):
+        self.min_length = 50

@@ -7,7 +7,8 @@ import "../css/index.css"
 
 // import js function
 import { GitIcon, LogoTop } from './utils/Header';
-import { OnSubmit, OnWebScrpSubmit } from './utils/SubmitButton';
+import { OnSubmit } from './utils/SubmitButton';
+import { OnWebScrpSubmit } from './utils/WebScrapSubmit';
 import { InputBox } from './utils/InputBox';
 import { CopyButton } from './utils/CopyToClipboard';
 import { LikeButton } from './utils/LikeIcon';
@@ -42,8 +43,8 @@ export default class Home extends Component{
                             <p contentEditable className='OutputText' id='webScrap-text' style={{height: "88%", color: "#282B2D"}} onClick={()=>TextChange()}/>
                             <OnWebScrpSubmit/>
                         </div>
-                        <div id='summarize-rec' className='Rectangle' style={{height: "60vh"}}>
-                            <p  id='summarize-text' className='OutputText' style={{height: "80%"}}/>
+                        <div id='summarize-rec' className='Rectangle' style={{height: "35vh"}}>
+                            <p  id='summarize-text' className='OutputText' style={{height: "24vh"}}/>
                                 <div className='In-Line' style={{justifyContent:"space-between"}}>
                                     <div className='In-Line' id="extra-button" style={{visibility:"hidden"}}>
                                         <Getshorter/>

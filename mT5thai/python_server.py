@@ -41,6 +41,7 @@ def handleWebScrap(transaction_id):
 def handleSummarize(transaction_id):
     # POST request
     if request.method == 'POST':
+        summarizer.reset_min_length()
         summarizer.tokenize(request.form['input'])
         summary[transaction_id] = summarizer.summarize()
         return 'OK', 200
