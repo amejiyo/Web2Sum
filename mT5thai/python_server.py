@@ -1,22 +1,14 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-# webScraptor
-from bs4 import BeautifulSoup
-import requests
-
 #mT5
-from package.mt5_thai_script import Mt5Thai 
+from mt5_thai_script import Mt5Thai 
+# web scrapping
+from webScrap import webScrap
 
 import warnings
 warnings.filterwarnings("ignore")
 
-# for create python app only 
-def webScrap(URL):
-    # Fetch the page and create a Beautiful Soup object
-    page = requests.get(URL)
-    soup = BeautifulSoup(page.text)
-    return soup.get_text()
 
 # create route for python app server
 app = Flask(__name__)

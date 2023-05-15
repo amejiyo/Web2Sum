@@ -1,0 +1,11 @@
+transformers
+sentencepiece
+simpletransformers==0.63.4
+tqdm
+pandas
+numpy
+html
+flask
+flask_cors
+lxml
+bs4

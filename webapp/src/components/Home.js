@@ -44,7 +44,7 @@ export default class Home extends Component{
                             <OnWebScrpSubmit/>
                         </div>
                         <div id='summarize-rec' className='Rectangle' style={{height: "35vh"}}>
-                            <p  id='summarize-text' className='OutputText' style={{height: "24vh"}}/>
+                            <p  id='summarize-text' className='OutputText' style={{height: "24vh", textJustify:"inter-word"}}/>
                                 <div className='In-Line' style={{justifyContent:"space-between"}}>
                                     <div className='In-Line' id="extra-button" style={{visibility:"hidden"}}>
                                         <Getshorter/>
