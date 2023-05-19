@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from transformers import AutoTokenizer, TFAutoModelForSeq2SeqLM
+from transformers import AutoTokenizer, TFAutoModelForSeq2SeqLM, T5ForConditionalGeneration
 import pandas as pd
 import numpy as np
 import html
@@ -47,7 +47,7 @@ class Mt5Thai():
         self.model = TFAutoModelForSeq2SeqLM.from_pretrained(model_name, 
                         output_attentions=True,
                         output_scores=True,
-                        from_pt=True,
+                        # from_pt=True,
                     )
         self.min_length = 50    # max_length = 2*self.min_lenght
         self.current_output = None
