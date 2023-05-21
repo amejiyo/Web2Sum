@@ -1,5 +1,5 @@
-# WebSum
- A mockup web application of web scraper to text summarize with word length selection
+# Web2Sum
+ A mockup web application of Thai web scraper to text summarize with word length selection, and important text visualization.
 
 
 ## Appendix
@@ -15,7 +15,19 @@
 | [mT5-multilingual-XLSum](https://huggingface.co/csebuetnlp/mT5_multilingual_XLSum#mt5-multilingual-xlsum) | Multilingual T5 (mT5): a massively multilingual pretrained text-to-text transformer model finetuned on the 45 languages of XL-Sum dataset. | [XL-Sum: Large-Scale Multilingual Abstractive Summarization for 44 Languages](https://aclanthology.org/2021.findings-acl.413/) | [Github](https://github.com/csebuetnlp/xl-sum) |
 
 
-## Setup Library and install all dependencies (Python)
+## Setup Library and install all dependencies
 ```python
->>> python -m pip install -r mT5thai/requirements.txt
+>>>python -m pip install -r mT5thai/requirements.txt
 ```
+
+## Running web application interface (on command line)
+### Terminal 1 (in webapp dir)
+```
+>>>npm start
+```
+
+### Terminal 2 (in mT5thai dir)
+```
+>>>python python-server.py
+```
+
