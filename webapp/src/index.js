@@ -5,7 +5,6 @@ import {
     Route,
     Navigate,
   } from "react-router-dom";
-
 import Home from "./components/Home";
 import PageNotFound from "./components/PageNotFound";
 import ReactDOM from 'react-dom/client';

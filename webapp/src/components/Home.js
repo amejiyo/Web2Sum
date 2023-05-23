@@ -12,7 +12,7 @@ import { OnWebScrpSubmit } from './utils/WebScrapSubmit';
 import { InputBox } from './utils/InputBox';
 import { CopyButton } from './utils/CopyToClipboard';
 import { LikeButton } from './utils/LikeIcon';
-import { GetLonger, Getshorter } from './utils/ExtraButton';
+import { GetLonger, Getshorter, SelectTFIDF, SelectTextRank, SelectmT5 } from './utils/ExtraButton';
 import { TextChange } from './utils/SubmitButton';
 
 // import image file
@@ -38,25 +38,28 @@ export default class Home extends Component{
                     <InputBox/>
                     <OnSubmit/>
                 </div>
-                    <div id="dashboard" className='Start-lvl'>
-                        <div id='webScrap-rec' className='Rectangle' style={{height: "60vh"}}>
-                            <p contentEditable className='OutputText' id='webScrap-text' style={{height: "88%", color: "#282B2D"}} onClick={()=>TextChange()}/>
-                            <OnWebScrpSubmit/>
-                        </div>
-                        <div id='summarize-rec' className='Rectangle' style={{height: "35vh"}}>
-                            <p  id='summarize-text' className='OutputText' style={{height: "24vh", textJustify:"inter-word"}}/>
-                                <div className='In-Line' style={{justifyContent:"space-between"}}>
-                                    <div className='In-Line' id="extra-button" style={{visibility:"hidden"}}>
-                                        <Getshorter/>
-                                        <GetLonger/>
-                                    </div>
-                                    <div>
-                                        <CopyButton/>
-                                        <LikeButton/>
-                                    </div>
-                                </div>
+                <div className='In-Line' id='select-model'>
+                    <SelectmT5/><SelectTextRank/><SelectTFIDF/>
+                </div>
+                <div id="dashboard" className='Start-lvl'>
+                    <div id='webScrap-rec' className='Rectangle' style={{height: "60vh"}}>
+                        <p contentEditable className='OutputText' id='webScrap-text' style={{height: "88%", color: "#282B2D"}} onClick={()=>TextChange()}/>
+                        <OnWebScrpSubmit/>
+                    </div>
+                    <div id='summarize-rec' className='Rectangle' style={{height: "35vh"}}>
+                        <p  id='summarize-text' className='OutputText' style={{height: "24vh", textJustify:"inter-word"}}/>
+                        <div className='In-Line' style={{justifyContent:"space-between"}}>
+                            <div className='In-Line' id="extra-button" style={{visibility:"hidden"}}>
+                                <Getshorter/>
+                                <GetLonger/>
+                            </div>
+                            <div>
+                                <CopyButton/>
+                                <LikeButton/>
+                            </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     )

@@ -1,11 +1,12 @@
 import { nanoid } from 'nanoid'
 import { main } from '../Params';
 
+var id = nanoid() ;
 export async function getData(input) {
     var webScrap_text = document.getElementById("webScrap-text");
     webScrap_text.innerText = "Insert text ...";
     webScrap_text.style.color = main.unselect_text[0];
-    const id = nanoid() ;
+    id = nanoid() ;
     const url = `http://localhost:8989/home/webscrap/${id}`;
     const req = await fetch(url,{
         method:"POST",
@@ -14,7 +15,7 @@ export async function getData(input) {
             "Content-Type": "application/json",
           },
         body: new URLSearchParams({
-            'input':input
+            'input':input,
         })
     });
     // console.log(req)
@@ -34,7 +35,6 @@ export async function getData(input) {
 export async function getSummary(input) {
     var summarize_text = document.getElementById("summarize-text");
     summarize_text.innerText = "Model is loading ...";
-    const id = nanoid() ;
     const url = `http://localhost:8989/home/summarize/${id}`;
     const req = await fetch(url,{
         method:"POST",
@@ -43,7 +43,8 @@ export async function getSummary(input) {
             "Content-Type": "application/json",
           },
         body: new URLSearchParams({
-            'input':input
+            'input':input,
+            'model': main.defaultModel
         })
     });
     // console.log(req)
@@ -63,7 +64,6 @@ export async function getSummary(input) {
 export async function editSummary(input) {
     var summarize_text = document.getElementById("summarize-text");
     summarize_text.innerHTML = "Model is loading ...";
-    const id = nanoid() ;
     const url = `http://localhost:8989/home/summarize_edit/${id}`;
     const req = await fetch(url,{
         method:"POST",
@@ -72,7 +72,8 @@ export async function editSummary(input) {
             "Content-Type": "application/json",
           },
         body: new URLSearchParams({
-            'input':input
+            'input':input,
+            'model': main.defaultModel
         })
     });
     // console.log(req)

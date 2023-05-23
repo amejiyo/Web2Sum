@@ -1,8 +1,10 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-#mT5
-from mt5_thai_script import Mt5Thai 
+# import model
+from model.mT5thai.mT5Thai import Mt5Thai 
+from model.TFIDF_TextRank.tfidf import TFIDF
+from model.TFIDF_TextRank.textRank import TextRank
 # web scrapping
 from webScrap import webScrap
 
@@ -14,7 +16,13 @@ warnings.filterwarnings("ignore")
 app = Flask(__name__)
 CORS(app)       # allow Cross Origin Resource Sharing with Flask
 
-summarizer = Mt5Thai()
+mt5 = Mt5Thai()
+textrank = TextRank()
+tfidf = TFIDF()
+
+model = {"mT5": mt5, "TextRank": textrank, "TFIDF": tfidf}
+
+summerizer_name = "mT5"
 print("server is ready")
 
 input_link = {} # store transaction_id and its answer
@@ -25,6 +33,8 @@ def handleWebScrap(transaction_id):
     if request.method == 'POST':
         print(transaction_id)
         input_link[transaction_id] = webScrap(request.form['input'])
+        for i in model.keys():
+            model[i].reset_min_length()
         return 'OK', 200
     else:
         return {'result': input_link[transaction_id]}
@@ -33,9 +43,12 @@ def handleWebScrap(transaction_id):
 def handleSummarize(transaction_id):
     # POST request
     if request.method == 'POST':
-        summarizer.reset_min_length()
-        summarizer.tokenize(request.form['input'])
-        summary[transaction_id] = summarizer.summarize()
+        for i in model.keys():
+            if i == request.form['model']:
+                print(request.form['model'])
+                model[i].reset_min_length()
+                model[i].tokenize(input_link[transaction_id])
+                summary[transaction_id] = model[i].summarize()
         return 'OK', 200
     else:
         if summary[transaction_id][0] == 200:
@@ -48,11 +61,15 @@ def handleEditSummarize(transaction_id):
     # POST request
     if request.method == 'POST':
         print("this is input edit sum req")
-        print(request.form['input'] == 'longer')
-        if request.form['input'] == 'longer':
-            summary[transaction_id] = summarizer.get_longer()
-        else:
-            summary[transaction_id] = summarizer.get_shorter()
+        for i in model.keys():
+            if i == request.form['model']:
+                print(request.form['model'], " ", request.form['input'])
+                if request.form['input'] == 'longer':
+                    summary[transaction_id] = model[i].get_longer()
+                else:
+                    summary[transaction_id] = model[i].get_shorter()
+            else:
+                model[i].reset_min_length()
         return 'OK', 200
     else:
         if summary[transaction_id][0] == 200:

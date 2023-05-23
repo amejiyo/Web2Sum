@@ -34,9 +34,10 @@ function resetToDefault(){
     input_box.style.borderColor = main.color_disable[1];
     main.color_submit_bt = main.color_enable_bt;
     document.getElementById("summarize-text").innerHTML = "";
-    document.getElementById("webScrap-text").value = "";
+    document.getElementById("webScrap-text").innerText = " ";
     setSummaryDisable();
     setWebScrapDisable();
+    document.getElementById("select-model").style.visibility = "hidden";
 }
 export function LogoTop(){
     const handleOnClick = (e) =>{

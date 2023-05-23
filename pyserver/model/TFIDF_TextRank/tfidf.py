@@ -13,7 +13,7 @@ from ..utils import highlightedText, Base
 class TFIDF(Base):
     def __init__(self, method='max'):
         super().__init__()  # Call the parent class constructor
-
+        self.name = "TF-IDF"
         self.segmenter = sentence_segment
         self.tokenizer = spacy_thai.load()
         self.tokens = None

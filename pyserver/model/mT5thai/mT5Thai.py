@@ -5,6 +5,7 @@ from ..utils import highlightedText, Base
 class Mt5Thai(Base):
     def __init__(self, model_name="thanathorn/mt5-cpe-kmutt-thai-sentence-sum"):
         super().__init__()
+        self.name = "mT5"
         self.model_name = model_name
         print(self.model_name)
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)

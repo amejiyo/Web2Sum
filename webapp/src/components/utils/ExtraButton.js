@@ -4,6 +4,7 @@ import { editSummary } from '../utils/RunPython';
 import { setSummaryEnable } from './Summary';
 import right_symbol from '../../assets/icon/yellow_right.svg';
 
+const model_list = ["mT5", "TextRank", "TFIDF"];
 async function handleEditSummarize(input) {
     var web_scrap = document.getElementById("webScrap-text");
     var summarize_text = document.getElementById("summarize-text");
@@ -19,10 +20,17 @@ async function handleEditSummarize(input) {
     }
   }
 
-const ChangeIcon = (i, id) =>{
+const ColorTriggerExt = (i, id) =>{
     var d = document.getElementById(id);
     d.style.backgroundColor = main.extra_bt[i];
     d.style.borderColor = main.extra_bt[i];
+}
+
+const ColorTriggerModel = (i, id) =>{
+    var d = document.getElementById(id);
+    if (main.defaultModel === id) d.style.backgroundColor = main.model_enable_bt[i];
+    else d.style.backgroundColor = main.model_disable_bt[i];
+
 }
 
 export function setExtraIcontoDefault(){
@@ -41,8 +49,8 @@ export function GetLonger(){
     return(
         <div className='ExtraButton' id='get-longer' style={{paddingLeft: "1vmin"}}
         onClick={()=>handleEditSummarize('longer')}
-        onPointerEnter={()=>ChangeIcon(1, "get-longer")}
-        onPointerLeave={()=>ChangeIcon(0, "get-longer")}>
+        onPointerEnter={()=>ColorTriggerExt(1, "get-longer")}
+        onPointerLeave={()=>ColorTriggerExt(0, "get-longer")}>
             get longer 
             <img src={right_symbol} className='Right-Icon'/>
         </div>
@@ -53,10 +61,52 @@ export function Getshorter(){
     return(
         <div className='ExtraButton' id='get-shorter' style={{paddingRight: "1vmin"}}
         onClick={()=>handleEditSummarize('shorter')}
-        onPointerEnter={()=>ChangeIcon(1, "get-shorter")}
-        onPointerLeave={()=>ChangeIcon(0, "get-shorter")}>
+        onPointerEnter={()=>ColorTriggerExt(1, "get-shorter")}
+        onPointerLeave={()=>ColorTriggerExt(0, "get-shorter")}>
             <img src={right_symbol} className='Left-Icon'/>
             get shorter 
+        </div>
+    );
+}
+
+function handleModelSelect (name){
+    main.defaultModel = name;
+    for (var i =0; i < model_list.length; i++){
+        var a = model_list[i]
+        if (main.defaultModel === a) document.getElementById(a).style.backgroundColor = main.model_enable_bt[0];
+        else document.getElementById(a).style.backgroundColor = main.model_disable_bt[0];
+    }
+}
+
+export function SelectmT5(){
+    return(
+        <div className='ModelButton' id='mT5' style={{backgroundColor: "#FFEFDF"}}
+        onClick={()=>handleModelSelect('mT5')}
+        onPointerEnter={()=>ColorTriggerModel(1, "mT5")}
+        onPointerLeave={()=>ColorTriggerModel(0, "mT5")}>
+            mT5
+        </div>
+    );
+}
+
+export function SelectTextRank(){
+    return(
+        <div className='ModelButton' id='TextRank' 
+        onClick={()=>handleModelSelect('TextRank')}
+        onPointerEnter={()=>ColorTriggerModel(1, "TextRank")}
+        onPointerLeave={()=>ColorTriggerModel(0, "TextRank")}>
+            TextRank
+        </div>
+    );
+}
+
+export function SelectTFIDF(){
+    return(
+        <div className='ModelButton' id='TFIDF' 
+        onClick={()=>handleModelSelect('TFIDF')}
+        onPointerEnter={()=>ColorTriggerModel(1, "TFIDF")}
+        onPointerLeave={()=>ColorTriggerModel(0, "TFIDF")}>
+            TFIDF
         </div>
     );
 }

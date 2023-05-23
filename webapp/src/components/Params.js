@@ -9,6 +9,7 @@ import white_like from "../assets/icon/white_like.svg"
 
 const main = {
     defautText : "Enter website ...",
+    defaultModel : "mT5",
     normal_text : ["#282B2D", '2px'],
     unselect_text : ["#777777", '1px'],
     color_disable : ["#A6A6A6", "#FB9B3B"],
@@ -25,6 +26,8 @@ const main = {
     sum_box : [["#f7f7f7", "#777777"], ["#FFEFDF", "#FB9B3B"]],
     sum_bt: ["#f7f7f7", "#f7f7f7"],
     extra_bt : ["#FFE0C2", "white"],
+    model_enable_bt : ["#FFEFDF", "#FFE0C2"],
+    model_disable_bt : ["white", "#FFE0C2"],
 }
 
 export {main};

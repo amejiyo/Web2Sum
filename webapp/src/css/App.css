@@ -1,7 +1,7 @@
 :root {
     --bgColor: white;
     --fontHometitle: calc(11vmin); 
-    --fontFam: 'Quicksand';
+    --fontFam: 'Quicksand', 'Sarabun';
     --norlmalFontsize: 2.5vmin;
     --colorNormalText: #282B2D;
     --yellowText: #FB9B3B;
@@ -86,14 +86,14 @@
     width: 40vw;
     background-color: var(--recColor);
     border-radius: 15px;
-    margin-bottom: 15vh;
+    margin-bottom: 10vh;
     border: var(--recColor) solid 1px;
     padding-bottom: 1vmin;
 }
 
 .OutputText{
     font-size: var(--norlmalFontsize);
-    text-align: justify;
+    text-align: left;
     overflow-y: scroll;
     margin: 3vh;
     width: 88%;
@@ -190,4 +190,18 @@
     font-weight: bolder;
     margin-left: 2vh;
     visibility: inherit;
+}
+
+.ModelButton{
+    font-size: 1.8vh;
+    width: 5vw;
+    border: 1px solid var(--yellowText);
+    border-radius: 2vh;
+    background-color: white;
+    outline: 0;
+    color: var(--yellowText);
+    font-weight: bold;
+    margin-left: 2vh;
+    margin-top: 1vmin;
+    padding: 1vh;
 }

@@ -45,11 +45,10 @@ def highlightedText(tokens, attention, pad='', max_alpha=0.8, cut_off=0.5, save_
                 weight = attention[word] / max(attention.values())*max_alpha # normalize
             else:
                 weight = 0.0
-            
         highlighted_text.append('<span style="background-color:rgba(251,155,59,' + str(weight) + ');">' + html_escape(word) + '</span>')
         # highlighted_text.append('' + html_escape(word) + '')
         
-    highlighted_text = pad.join(highlighted_text)
+    highlighted_text = pad.join(highlighted_text).replace("&lt;/s&gt;", "")
 
     display(HTML(highlighted_text))
 

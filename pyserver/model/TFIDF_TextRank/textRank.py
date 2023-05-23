@@ -12,6 +12,7 @@ from ..utils import highlightedText, Base
 
 class TextRank(Base):
     def __init__(self, method='max'):
+        self.name = "TextRank"
         super().__init__()  # Call the parent class constructor
         self.d = 0.85 # damping coefficient, usually is .85
         self.min_diff = 1e-5 # convergence threshold
