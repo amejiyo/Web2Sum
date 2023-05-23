@@ -23,11 +23,11 @@
 ## Running web application interface (on command line)
 ### Terminal 1 (in webapp dir)
 ```
->>>npm start
+>>> npm start
 ```
 
 ### Terminal 2 (in mT5thai dir)
 ```
->>>python python-server.py
+>>> python python-server.py
 ```
 

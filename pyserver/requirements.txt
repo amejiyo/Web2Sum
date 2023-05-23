@@ -1,10 +1,11 @@
 transformers
 sentencepiece
 simpletransformers==0.63.4
+thai-segmenter 
+spacy_thai
 tqdm
 pandas
 numpy
-html
 flask
 flask_cors
 lxml
