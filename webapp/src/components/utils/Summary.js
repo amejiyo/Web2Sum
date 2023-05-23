@@ -3,6 +3,7 @@ import { setExtraIcontoDefault } from './ExtraButton';
 import { main } from "../Params"
 
 export async function handleSummarize() {
+    setSummaryDisable()
     var input = document.getElementById("webScrap-text");
     var summarize_text = document.getElementById("summarize-text");
     var output = await getSummary(input.innerText);
