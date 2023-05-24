@@ -13,7 +13,10 @@ async function handleEditSummarize(input) {
     if (output.flag === "1"){
         summarize_text.innerHTML = output.result;
         web_scrap.innerHTML = output.input_text;
+        autoResizeSummaryBox();
         setSummaryEnable();
+        if (output.length <= 50) document.getElementById("get-shorter").style.visibility = "hidden";
+        else document.getElementById("get-shorter").style.visibility = "visible";
     }
     else if (output.flag === "0"){
         summarize_text.innerHTML = output.result;
@@ -30,7 +33,27 @@ const ColorTriggerModel = (i, id) =>{
     var d = document.getElementById(id);
     if (main.defaultModel === id) d.style.backgroundColor = main.model_enable_bt[i];
     else d.style.backgroundColor = main.model_disable_bt[i];
+}
 
+function autoResizeSummaryBox() {
+    var summarize_text = document.getElementById("summarize-text");
+    var summarize_rec = document.getElementById("summarize-rec");
+    if (summarize_text.clientHeight < summarize_text.scrollHeight){
+        let height_diff = summarize_text.scrollHeight - summarize_text.clientHeight
+        console.log(summarize_rec.clientHeight + height_diff, 0.6 * window.innerHeight);
+        if (summarize_rec.clientHeight + height_diff < 0.6 * window.innerHeight){
+            summarize_rec.setAttribute("style","height: "+ (summarize_rec.clientHeight + height_diff)*100/window.innerHeight + "vh");
+            summarize_text.setAttribute("style","height: "+ (summarize_text.clientHeight + height_diff)*100/window.innerHeight + "vh");
+        }
+        else {
+            summarize_rec.setAttribute("style","height: 60vh");
+            summarize_text.setAttribute("style","height: 49vh");
+        }
+        if (summarize_rec.clientHeight < 0.24 * window.innerHeight){
+            summarize_rec.setAttribute("style","height: 35vh");
+            summarize_text.setAttribute("style","height: 24vh");
+        }
+    }
 }
 
 export function setExtraIcontoDefault(){

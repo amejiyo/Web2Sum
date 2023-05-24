@@ -51,4 +51,4 @@ class Mt5Thai(Base):
             highlighted_text = highlightedText(tokens, self.current_output)
         except:
             return 400, self.feedback_code[400], -1
-        return 200, output, highlighted_text
+        return 200, output, highlighted_text, self.min_length

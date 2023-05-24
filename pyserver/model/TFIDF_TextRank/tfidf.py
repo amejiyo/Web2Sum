@@ -123,4 +123,4 @@ class TFIDF(Base):
             highlighted_text = highlightedText( list(self.tokens), self.node_weight)
         except:
             return 400, self.feedback_code[400], -1
-        return 200, output, highlighted_text
+        return 200, output, highlighted_text, self.min_length

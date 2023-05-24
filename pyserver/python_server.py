@@ -52,7 +52,7 @@ def handleSummarize(transaction_id):
         return 'OK', 200
     else:
         if summary[transaction_id][0] == 200:
-            return {'flag': '1', 'input_text': summary[transaction_id][2], 'result':summary[transaction_id][1]}
+            return {'flag': '1', 'input_text': summary[transaction_id][2], 'result':summary[transaction_id][1], 'length':summary[transaction_id][3]}
         else:
             return {'flag': '0', 'input_text': "-1", 'result':summary[transaction_id][1]}
 
@@ -73,7 +73,7 @@ def handleEditSummarize(transaction_id):
         return 'OK', 200
     else:
         if summary[transaction_id][0] == 200:
-            return {'flag': '1', 'input_text': summary[transaction_id][2], 'result':summary[transaction_id][1]}
+            return {'flag': '1', 'input_text': summary[transaction_id][2], 'result':summary[transaction_id][1], 'length':summary[transaction_id][3]}
         else:
             return {'flag': '0', 'input_text': "-1", 'result':summary[transaction_id][1]}
         

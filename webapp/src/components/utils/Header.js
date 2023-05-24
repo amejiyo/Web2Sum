@@ -37,7 +37,8 @@ function resetToDefault(){
     document.getElementById("webScrap-text").innerText = " ";
     setSummaryDisable();
     setWebScrapDisable();
-    document.getElementById("select-model").style.visibility = "hidden";
+    document.getElementById("summarize-rec").setAttribute("style","height: 35vh");
+    document.getElementById("summarize-text").setAttribute("style","height: 24vh");
 }
 export function LogoTop(){
     const handleOnClick = (e) =>{

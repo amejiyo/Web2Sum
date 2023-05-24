@@ -54,6 +54,9 @@ export function setToDisable(){
     main.color_submit_bt = main.color_disable_bt;
     submitButton.style.backgroundColor = main.color_submit_bt[0];
     submitButton.style.borderColor = main.color_submit_bt[0];
+    document.getElementById("summarize-rec").setAttribute("style","height: 35vh");
+    document.getElementById("summarize-text").setAttribute("style","height: 24vh");
+    document.getElementById("get-shorter").style.visibility = "hidden";
 }
 
 export function OnSubmit(){

@@ -11,8 +11,8 @@ export async function handleSummarize() {
     if (output.flag === "1"){
         summarize_text.innerHTML = output.result;
         input.innerHTML = output.input_text;
-        autoResizeSummaryBox();
         setSummaryEnable();
+        document.getElementById("get-shorter").style.visibility = "hidden";
     }
     else if (output.flag === "0"){
         summarize_text.innerHTML = output.result;
@@ -46,18 +46,7 @@ export function setSummaryDisable(){
     main.sum_bt = main.color_enable_bt;
     d.style.backgroundColor = main.sum_bt[0];
     d.style.borderColor = main.sum_bt[0];
-}
-
-function autoResizeSummaryBox() {
-    var summarize_text = document.getElementById("summarize-text");
-    var summarize_rec = document.getElementById("summarize-rec");
-    var webScrap_rec = document.getElementById("webScrap-rec");
-    if (summarize_text.clientHeight < summarize_text.scrollHeight){
-        let height_diff = summarize_text.scrollHeight - summarize_text.clientHeight
-        console.log(summarize_rec.style.height + height_diff < webScrap_rec.style.height);
-        if (summarize_rec.style.height + height_diff < webScrap_rec.style.height){
-            summarize_rec.setAttribute("style","width:"+summarize_rec.style.height+ height_diff + "px");
-            summarize_text.setAttribute("style","width:"+summarize_text.style.height+height_diff + "px");
-        }
-    }
+    document.getElementById("summarize-rec").setAttribute("style","height: 35vh");
+    document.getElementById("summarize-text").setAttribute("style","height: 24vh");
+    document.getElementById("get-shorter").style.visibility = "hidden";
 }
