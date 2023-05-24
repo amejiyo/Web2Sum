@@ -1,13 +1,17 @@
 import { nanoid } from 'nanoid'
 import { main } from '../Params';
 import { setSummaryDisable } from "./Summary"
+
 var id = nanoid() ;
+// var web = "http://amejiyo.trueddns.com:36811"
+var web = "https://5172-2001-fb1-d6-abea-b188-cb68-2257-cc3.ngrok-free.app"
+// var web = "localhost:8989"
 export async function getData(input) {
     var webScrap_text = document.getElementById("webScrap-text");
     webScrap_text.innerText = "Insert text ...";
     webScrap_text.style.color = main.unselect_text[0];
     id = nanoid() ;
-    const url = `http://localhost:8989/home/webscrap/${id}`;
+    const url = `${web}/home/webscrap/${id}`;
     const req = await fetch(url,{
         method:"POST",
         mode: "no-cors",
@@ -35,7 +39,7 @@ export async function getData(input) {
 export async function getSummary(input) {
     var summarize_text = document.getElementById("summarize-text");
     summarize_text.innerText = "Model is loading ...";
-    const url = `http://localhost:8989/home/summarize/${id}`;
+    const url = `${web}/home/summarize/${id}`;
     const req = await fetch(url,{
         method:"POST",
         mode: "no-cors",
@@ -65,7 +69,7 @@ export async function editSummary(input) {
     var summarize_text = document.getElementById("summarize-text");
     summarize_text.innerHTML = "Model is loading ...";
     setSummaryDisable()
-    const url = `http://localhost:8989/home/summarize_edit/${id}`;
+    const url = `${web}/home/summarize_edit/${id}`;
     const req = await fetch(url,{
         method:"POST",
         mode: "no-cors",

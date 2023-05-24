@@ -78,4 +78,4 @@ def handleEditSummarize(transaction_id):
             return {'flag': '0', 'input_text': "-1", 'result':summary[transaction_id][1]}
         
 # run app
-app.run(debug=True, host='localhost', port=8989)
+app.run(debug=True, host="0.0.0.0", port=8989)
