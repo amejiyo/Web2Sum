@@ -37,8 +37,9 @@ def highlightedText(tokens, attention, pad='', max_alpha=0.8, cut_off=0.5, save_
         # TF-IDF & TextRank weight is dictionary
         # Attention in tranformer which has Multi-dimension
         if is_model_based:
-            weight = df[i]
-            if weight < cut_off: weight = 0
+            # weight = df[i]
+            # if weight < cut_off: weight = 0
+            pass
 
         else: # TF-IDF & TextRank weight is dictionary
             if word in attention.keys():
