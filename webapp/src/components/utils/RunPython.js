@@ -70,7 +70,7 @@ export async function editSummary(input) {
     var summarize_text = document.getElementById("summarize-text");
     summarize_text.innerHTML = "Model is loading ...";
     setSummaryDisable()
-    const url = `${web}/home/summarize_edit/${id}`;
+    const url = `${web}/home/summarize_edit/${id}/`;
     const req = await fetch(url,{
         method:"POST",
         mode: "no-cors",
