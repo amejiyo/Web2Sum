@@ -10,3 +10,4 @@ flask
 flask_cors
 lxml
 bs4
+ipython
