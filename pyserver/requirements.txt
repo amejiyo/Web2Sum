@@ -11,3 +11,5 @@ flask_cors
 lxml
 bs4
 ipython
+tensorflow
+torch

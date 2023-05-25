@@ -2,8 +2,8 @@ from IPython.core.display import display, HTML
 import pandas as pd
 import numpy as np
 import html
-import tensorflow as tf
-import torch 
+# import tensorflow as tf
+# import torch 
 
 def html_escape(text):
     return html.escape(text)
@@ -19,16 +19,16 @@ def highlightedText(tokens, attention, pad='', max_alpha=0.8, cut_off=0.5, save_
     '''
     is_model_based = False
     highlighted_text = []
-    try:
-        if isinstance(attention[0], torch.Tensor):
-            is_model_based = True
-            output_att = tf.stack(attention.encoder_attentions)
-            reshaped_scores = tf.reduce_mean(output_att[-1,:,0], axis=0)
-            df = pd.DataFrame(reshaped_scores).sum(axis=0)
-            df = 1/df
-            df /= df.max() # normalize
-    except:
-            pass
+    # try:
+    #     if isinstance(attention[0], torch.Tensor):
+    #         is_model_based = True
+    #         output_att = tf.stack(attention.encoder_attentions)
+    #         reshaped_scores = tf.reduce_mean(output_att[-1,:,0], axis=0)
+    #         df = pd.DataFrame(reshaped_scores).sum(axis=0)
+    #         df = 1/df
+    #         df /= df.max() # normalize
+    # except:
+    #         pass
 
     for i, word in enumerate(tokens):
         word = str(word)
