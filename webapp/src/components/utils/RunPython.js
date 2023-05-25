@@ -24,7 +24,6 @@ export async function getData(input) {
     });
     const response = await fetch(url,{
         method:"GET",
-        // mode: 'no-cors',
         headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
@@ -46,6 +45,7 @@ export async function getSummary(input) {
         mode: "no-cors",
         headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
         body: new URLSearchParams({
             'input':input,
@@ -57,6 +57,7 @@ export async function getSummary(input) {
         method:"GET",
         headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           }
     }).then(function(response){
         return response.json();
@@ -70,12 +71,13 @@ export async function editSummary(input) {
     var summarize_text = document.getElementById("summarize-text");
     summarize_text.innerHTML = "Model is loading ...";
     setSummaryDisable()
-    const url = `${web}/home/summarize_edit/${id}`;
+    const url = `${web}/home/summarize_edit/${id}/`;
     const req = await fetch(url,{
         method:"POST",
         mode: "no-cors",
         headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
         body: new URLSearchParams({
             'input':input,
@@ -87,6 +89,7 @@ export async function editSummary(input) {
         method:"GET",
         headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           }
     }).then(function(response){
         return response.json();
