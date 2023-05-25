@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 
 # import model
-from model.mT5thai.mT5Thai import Mt5Thai 
+# from model.mT5thai.mT5Thai import Mt5Thai 
 from model.TFIDF_TextRank.tfidf import TFIDF
 from model.TFIDF_TextRank.textRank import TextRank
 # web scrapping
@@ -16,7 +16,7 @@ warnings.filterwarnings("ignore")
 app = Flask(__name__)
 cors = CORS(app)     # allow Cross Origin Resource Sharing with Flask
 
-mt5 = Mt5Thai()
+mt5 = TextRank()
 textrank = TextRank()
 tfidf = TFIDF()
 
@@ -89,5 +89,5 @@ def handleEditSummarize(transaction_id):
             return {'flag': '0', 'input_text': "-1", 'result':summary[transaction_id][1]}
         
 # run app
-app.run(debug=True, host="0.0.0.0", port=8989)
-# app.run()
+# app.run(debug=True, host="0.0.0.0", port=8989)
+app.run(debug=True)
