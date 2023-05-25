@@ -16,11 +16,11 @@ warnings.filterwarnings("ignore")
 app = Flask(__name__)
 cors = CORS(app)     # allow Cross Origin Resource Sharing with Flask
 
-mt5 = Mt5Thai()
+# mt5 = Mt5Thai()
 textrank = TextRank()
 tfidf = TFIDF()
 
-model = {"mT5": mt5, "TextRank": textrank, "TFIDF": tfidf}
+model = {"mT5": textrank, "TextRank": textrank, "TFIDF": tfidf}
 
 summerizer_name = "mT5"
 print("server is ready")

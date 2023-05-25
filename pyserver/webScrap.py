@@ -17,6 +17,6 @@ def webScrap(URL):
     for ele in soup.findAll("p", {'class': None}):
         if (ele.get_text() != "SPONSORED"):
             text+=ele.get_text()
-    return text
+    return text.replace("ข่าววิดีโอหนังสือพิมพ์ไทยรัฐทีวีไลฟ์สไตล์กีฬาบันเทิงดวงหวยนิยายโปรโมชั่นMONEYMIRRORTHAIRATH +", "")
 
 # print(webScrap('https://www.thairath.co.th/news/politic/2694115'))
