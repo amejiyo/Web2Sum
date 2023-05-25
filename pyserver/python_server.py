@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 # import model
 from model.mT5thai.mT5Thai import Mt5Thai 
@@ -14,7 +14,7 @@ warnings.filterwarnings("ignore")
 
 # create route for python app server
 app = Flask(__name__)
-CORS(app)       # allow Cross Origin Resource Sharing with Flask
+cors = CORS(app)     # allow Cross Origin Resource Sharing with Flask
 
 mt5 = Mt5Thai()
 textrank = TextRank()
@@ -27,11 +27,20 @@ print("server is ready")
 
 input_link = {} # store transaction_id and its answer
 summary = {}
-@app.route('/home/webscrap/<transaction_id>', methods=['POST','GET'])
+
+@app.after_request 
+def after_request(response):
+    header = response.headers
+    header['Access-Control-Allow-Origin'] = '*'
+    # Other headers can be added here if needed
+    return response
+
+@app.route('/home/webscrap/<transaction_id>/', methods=['POST','GET'])
+@cross_origin()
 def handleWebScrap(transaction_id):
     # POST request
     if request.method == 'POST':
-        print(transaction_id)
+        print(request.form)
         input_link[transaction_id] = webScrap(request.form['input'])
         for i in model.keys():
             model[i].reset_min_length()
@@ -39,7 +48,8 @@ def handleWebScrap(transaction_id):
     else:
         return {'result': input_link[transaction_id]}
 
-@app.route('/home/summarize/<transaction_id>', methods=['POST','GET'])
+@app.route('/home/summarize/<transaction_id>/', methods=['POST','GET'])
+@cross_origin()
 def handleSummarize(transaction_id):
     # POST request
     if request.method == 'POST':
@@ -56,7 +66,8 @@ def handleSummarize(transaction_id):
         else:
             return {'flag': '0', 'input_text': "-1", 'result':summary[transaction_id][1]}
 
-@app.route('/home/summarize_edit/<transaction_id>', methods=['POST','GET'])
+@app.route('/home/summarize_edit/<transaction_id>/', methods=['POST','GET'])
+@cross_origin()
 def handleEditSummarize(transaction_id):
     # POST request
     if request.method == 'POST':
@@ -79,3 +90,4 @@ def handleEditSummarize(transaction_id):
         
 # run app
 app.run(debug=True, host="0.0.0.0", port=8989)
+# app.run()

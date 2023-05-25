@@ -3,30 +3,31 @@ import { main } from '../Params';
 import { setSummaryDisable } from "./Summary"
 
 var id = nanoid() ;
-// var web = "http://amejiyo.trueddns.com:36811"
-var web = "https://5172-2001-fb1-d6-abea-b188-cb68-2257-cc3.ngrok-free.app"
-// var web = "localhost:8989"
+var web = "http://192.168.1.83:8989"        // change 192.168.1.83 to your IPv4 number
+
 export async function getData(input) {
     var webScrap_text = document.getElementById("webScrap-text");
     webScrap_text.innerText = "Insert text ...";
     webScrap_text.style.color = main.unselect_text[0];
     id = nanoid() ;
-    const url = `${web}/home/webscrap/${id}`;
+    const url = `${web}/home/webscrap/${id}/`;
     const req = await fetch(url,{
         method:"POST",
         mode: "no-cors",
         headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
         body: new URLSearchParams({
             'input':input,
         })
     });
-    // console.log(req)
     const response = await fetch(url,{
         method:"GET",
+        // mode: 'no-cors',
         headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           }
     }).then(function(response){
         return response.json();
@@ -39,7 +40,7 @@ export async function getData(input) {
 export async function getSummary(input) {
     var summarize_text = document.getElementById("summarize-text");
     summarize_text.innerText = "Model is loading ...";
-    const url = `${web}/home/summarize/${id}`;
+    const url = `${web}/home/summarize/${id}/`;
     const req = await fetch(url,{
         method:"POST",
         mode: "no-cors",
