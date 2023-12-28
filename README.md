@@ -1,6 +1,7 @@
 # Web2Sum
  A mockup web application of Thai web scraper to text summarize with word length selection, and important text visualization.
 
+![](preview/preview.jpg)
 
 ## Appendix
 📁[Google Drive](https://drive.google.com/drive/folders/1eycRcO2_xs6bJd0_1lCI4ZjrOXV2N7mn?usp=sharing) | 
